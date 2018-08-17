@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import ReactSVG from 'react-svg'
 
 const StyledTitle = styled.h1`
   color: black;
   font-family: 'Copernicus', serif;
   font-size: 5rem;
+  font-weight: 100;
   margin: 0;
   min-width: 750px;
   mix-blend-mode: lighten;
@@ -82,7 +82,8 @@ const ViewTitle = ({ title }) => {
 }
 
 const SlugPreview = ({ slug }) => {
-  const hyphenatedSlug = slug.replace(/\s+/g, '-').toLowerCase();
+  const slugNoSymbols = slug.replace(/[^a-zA-Z ]/g, "");
+  const hyphenatedSlug = slugNoSymbols.replace(/\s+/g, '-').toLowerCase();
 
   return(
     <StlyedSlugPreview>
@@ -121,7 +122,7 @@ class ArticleTitle extends Component {
   exitEditable = (prevText) => {
     this.setState({
       editable: !this.state.editable,
-      text: this.props.text
+      text: this.props.text /* TODO: This should be initial state of text. Maybe w/ redux */
     })
   }
 
@@ -146,7 +147,6 @@ class ArticleTitle extends Component {
           <TitleWrapper>
             <EditButton onClick={ this.toggleEditable }>
               Edit
-              <ReactSVG path={ '../../assets/pencil.svg' }/>
             </EditButton>
             <ViewTitle title={ text } />
           </TitleWrapper>

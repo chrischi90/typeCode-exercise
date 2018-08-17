@@ -4,7 +4,7 @@ import ReactSVG from 'react-svg'
 
 const StyledTitle = styled.h1`
   color: black;
-  font-family: 'Copernicus', sans-serif;
+  font-family: 'Copernicus', serif;
   font-size: 5rem;
   margin: 0;
   min-width: 750px;
@@ -38,7 +38,7 @@ const TitleWrapper = styled.div`
 
 const StyledTitleInput = styled.input`
   border: 1px solid gray;
-  font-family: 'Copernicus', sans-serif;
+  font-family: 'Copernicus', serif;
   font-size: 3.5rem;
   padding: 8px;
 `
@@ -146,6 +146,7 @@ class ArticleTitle extends Component {
           <TitleWrapper>
             <EditButton onClick={ this.toggleEditable }>
               Edit
+              <ReactSVG path={ '../../assets/pencil.svg' }/>
             </EditButton>
             <ViewTitle title={ text } />
           </TitleWrapper>

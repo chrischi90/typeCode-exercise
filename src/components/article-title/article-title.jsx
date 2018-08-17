@@ -1,68 +1,18 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-
-const StyledTitle = styled.h1`
-  color: black;
-  font-family: 'Copernicus', serif;
-  font-size: 5rem;
-  font-weight: 100;
-  margin: 0;
-  min-width: 750px;
-  mix-blend-mode: lighten;
-
-  > span {
-    background: white;
-    padding: 12px;
-  }
-`
-
-const ButtonWrapper = styled.div`
-  width: 60px;
-  margin: 0 0 0 -50px;
-`
-
-const EditButton = styled.button`
-  margin: 0 0 15px -50px;
-`
-
-const ExitEditButton = styled.button`
-`
-
-const SaveButton = styled.button`
-`
-
-const TitleWrapper = styled.div`
-  align-self: end;
-  grid-column-start: 5;
-`
-
-const StyledTitleInput = styled.input`
-  border: 1px solid gray;
-  font-family: 'Copernicus', serif;
-  font-size: 3.5rem;
-  padding: 8px;
-`
-const InputWrapper = styled.div`
-  background-color: white;
-  padding: 20px;
-`
-
-const StlyedSlugPreview = styled.div`
-  color: #c2c2c2;
-  font-family: Futura, sans-serif;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  background-color: white;
-  padding: 0 20px 20px 20px;
-
-  > p {
-      margin: 0
-  }
-
-  > span {
-    color: #6c6c6c;
-  }
-`
+import {
+  StyledTitle,
+  ButtonWrapper,
+  EditButton,
+  TitleWrapper,
+  ExitEditButton,
+  SaveButton,
+  StyledTitleInput,
+  InputWrapper,
+  StlyedSlugPreview,
+} from './styled-article-title'
+import { PencilIcon } from './pencil-icon'
+import { ExitIcon } from './x-icon'
+import { CheckmarkIcon } from './checkmark-icon'
 
 const EditableTitle = ({ text, handleRef, onInput, preventEnter }) => {
   return(
@@ -146,7 +96,7 @@ class ArticleTitle extends Component {
         { !this.state.editable ?
           <TitleWrapper>
             <EditButton onClick={ this.toggleEditable }>
-              Edit
+              <PencilIcon height={ "30px" } width={ "30px" }/>
             </EditButton>
             <ViewTitle title={ text } />
           </TitleWrapper>
@@ -154,9 +104,11 @@ class ArticleTitle extends Component {
           <TitleWrapper>
             <ButtonWrapper>
               <ExitEditButton onClick={ this.exitEditable }>
-                Cancel
+                <ExitIcon height={ "30px" } width={ "30px" } />
               </ExitEditButton>
-              <SaveButton onClick={ this.saveEditable }>Save</SaveButton>
+              <SaveButton onClick={ this.saveEditable }>
+                <CheckmarkIcon height={ "30px" } width={ "30px" } />
+              </SaveButton>
             </ButtonWrapper>
             <EditableTitle
               text={ text }

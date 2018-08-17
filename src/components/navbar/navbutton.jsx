@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { NavIcon } from './nav-icon'
 
 const NavWrapper = styled.div`
   width: 200px;
 `
-const navIcon = require('../../assets/logo_and_hamburger.svg');
 
 class NavButton extends Component {
   render() {
     return (
       <NavWrapper>
-        <img src={ navIcon } alt="nav-icon"/>
+        <NavIcon />
       </NavWrapper>
     )
   }

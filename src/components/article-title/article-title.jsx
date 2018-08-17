@@ -33,7 +33,7 @@ const SaveButton = styled.button`
 
 const TitleWrapper = styled.div`
   align-self: end;
-  grid-column-start: 4;
+  grid-column-start: 5;
 `
 
 const StyledTitleInput = styled.input`
